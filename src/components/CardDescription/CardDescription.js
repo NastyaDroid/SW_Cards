@@ -42,8 +42,6 @@ getData (arr) {
         const desc = this.props.match.params.name;
         const res = this.props.description.filter((item) => item.name === desc);
         const film = res.map((item)=> item.vehicles)
-        // console.log(this.getData("https://swapi.dev/api/films/2/"))
-        console.log('desc',film)
         return(
             <div>
                 {res.map((item) => {

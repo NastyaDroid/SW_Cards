@@ -21,18 +21,52 @@ class App extends Component {
     }
     this.getData = this.getData.bind(this);
     this.btnClick = this.btnClick.bind(this);
-    this.addFavorite = this.addFavorite.bind(this);
+    // this.addFavorite = this.addFavorite.bind(this);
+    // this.filterList = this.filterList.bind(this);
   }
 
-  addFavorite = (favorite) => {
+  sortNames = (firstName, secondName) => {
+    if (firstName.name < secondName.name) {
+      console.log(firstName.name, secondName.name);
+      return -1;
+    }
+    if (firstName.name > secondName.name){
+      console.log(firstName.name, secondName.name);
+      return 1;
+    }
+      return 0;
+  }
+  sortList = () => {
+    const { favorites } = this.state;
+    console.log(this.state.favorites)
+    console.log(favorites.sort(this.sortNames))
+    this.setState({
+      favorites: this.state.favorites.sort()
+    })
+  }
+
+  // filterList(e) {
+  //   const filteredList = this.state.favorites.filter(function(item) {
+  //     console.log(item)
+  //     return item.name.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
+  //   })
+  //   this.setState({favorites: filteredList})
+  // }
+
+  onAdd = (favorite) => {
     const { favorites } = this.state;
     if (!favorites.some(alreadyFavorite => alreadyFavorite.name === favorite.name)) {
       this.setState({
         favorites: [...this.state.favorites, favorite]
       });
   }
+  alert('Added')
 }
-
+onRemove = (favorite) => {
+  this.setState(state => ({
+    favorites: state.favorites.filter(elem=>elem.name !== favorite.name)
+  }));
+}
 
   getData() {
     const { currentPage } = this.state;
@@ -67,7 +101,7 @@ class App extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, favorites } = this.state;
    
     if (this.state.loading) {
       return (
@@ -84,7 +118,10 @@ class App extends Component {
             render={() => (
               <div>
                 <Header />
-                <CardList cardList={this.state.currentHeroes}  onClick={this.addFavorite}/>
+                <CardList 
+                cardList={this.state.currentHeroes}  
+                onAdd={this.onAdd} 
+                />
                 <Pagination totalRecords={data} heroesArray={this.state.currentHeroes}
                   key={this.elem} onClick={this.btnClick} />
                   {/* onClick={this.addFavorite} */}
@@ -93,7 +130,7 @@ class App extends Component {
           />
           <Route
             path="/favorites"
-            render={() => <Favorites favorites={this.state.favorites} />}
+            render={() => <Favorites favorites={favorites} onClick={this.sortList} onRemove={this.onRemove}/>}
           />
         </Switch>
               <Route 

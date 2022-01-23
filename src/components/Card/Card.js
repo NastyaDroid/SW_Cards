@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default class Card extends React.Component {
     render() {
-        const { hero, onClick } = this.props;
+        const { hero, onAdd} = this.props;
         return (
             <div className='card'>
                 <h3>{hero.name}</h3>
@@ -20,7 +20,7 @@ export default class Card extends React.Component {
                 </ul>
                 <button
                     className='card__btn' 
-                    onClick={onClick}>
+                    onClick={onAdd}>
                     Add to Favorite
                 </button>
             </div>

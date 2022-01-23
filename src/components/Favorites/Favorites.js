@@ -5,13 +5,18 @@ export default class Favorites extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+    };
   }
+  
+  
 
+  
   render() {
-    const { favorites, onClick } = this.props;
+    const { favorites, onClick, onRemove } = this.props;
     return (
       <div>
+        <button onClick={onClick}>Sort</button>
         <ul>
           {favorites.map(hero => {
             return (
@@ -20,6 +25,8 @@ export default class Favorites extends React.Component {
                   <p>
                     {hero.name}
                   </p>
+                  <button onClick={()=>onRemove(hero)}>Remove</button>
+                  <Link to={`/${hero.name}`}>Show more info</Link>
                 </div>
               </li>
             );
