@@ -1,0 +1,21 @@
+.card-description {
+    max-width: 30%;
+
+    &__title {
+        border-bottom: 2px solid #f00;
+    }
+    &__info-item {
+        border-top: 1px solid black;
+        margin-bottom: 1rem;
+    }
+    &__link {
+        font-size: 14px;
+        border-radius: 10px;
+        padding: 0.2rem 20px;
+    }
+}
+@media (max-width: 640px) {
+    .card-description {
+        max-width: 70%;
+    }
+}

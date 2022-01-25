@@ -1,0 +1,75 @@
+.favorites {
+    &__btn {
+        padding: 0.3rem 1rem;
+        width: 8%;
+        margin-bottom: 2rem;
+    }
+    &__list {
+        display: grid;
+        gap: 54px;
+        grid-template-columns: repeat(5, 1fr);
+        
+            &-info {
+            min-height: 200px;
+            padding: 0.5rem 0.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 5px 5px 16px rgba(0,0,0,0.3);
+            }
+            &-link {
+                font-size: 12px;
+                font-weight: bold;
+                text-align: center;
+                background-image: url('../../../public/bg2.jpg');
+                padding: 0.5rem 0;
+                border-radius: 0.625rem;
+            }
+            &-btn {
+                padding: 0.5rem 0;
+                margin-top: 1rem;
+            }
+        }
+    &__link {
+        font-size: 1.5rem;
+        border-radius: 10px;
+        padding: 0.2rem 20px;
+        align-self: center;
+        margin-top: 2rem;
+    }
+}
+@media (max-width: 1289px) {
+    .favorites {
+        width: 90%;
+    }
+    .favorites__btn {
+        width: 16%;
+    }
+    .favorites__list {
+        max-width: 920px;
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .favorites__list-info {
+        align-items: center;
+    }
+    .favorites__list-link {
+        width: 70%;
+    }
+    .favorites__list-btn {
+        width: 70%;
+    }
+}
+@media (max-width: 640px) {
+    .favorites__btn {
+        width: 20%;
+    }
+    .favorites__list {
+        max-width: 320px;
+        grid-template-columns: 1fr;
+    }
+    .favorites__list-link {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

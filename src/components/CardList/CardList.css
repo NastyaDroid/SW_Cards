@@ -1,0 +1,23 @@
+.card-list {
+    max-width: 1290px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    gap: 54px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 1289px) {
+    .card-list {
+        max-width: 920px;
+        width: 90%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .card-list {
+        max-width: 320px;
+        grid-template-columns: 1fr;
+    }
+}

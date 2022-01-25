@@ -1,0 +1,31 @@
+.card {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 5px 5px 16px rgba(0,0,0,0.3);
+    border: 1px solid #ccc;
+    padding: 0 0.5rem;
+
+    &__title {
+        border-bottom: 2px solid #f00;
+    }
+    &__link {
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        background-image: url('../../../public/bg2.jpg');
+        padding: 0.5rem 0;
+        border-radius: 0.625rem;
+    }
+    &__btn {
+        font-size: 12px;
+        padding: 0.5rem 0;
+    }
+}
+@media (max-width: 640px) {
+    .card__link {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

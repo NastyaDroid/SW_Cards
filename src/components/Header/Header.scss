@@ -1,0 +1,30 @@
+.header {
+     background-image: url('../../../public/bg.jpg');
+     background-size: cover;
+     background-position: center;
+
+     &__title {
+        margin-top: 0;
+        color: #fff;
+        text-align: center;
+
+        &:hover {
+            color: #f00;
+        }
+     }
+     &__nav {
+        max-width: 1290px;
+        margin: 0 auto;
+     }
+     &__link {
+        font-size: 1.5rem;
+        border-radius: 10px;
+        padding: 0.2rem 20px;
+     }
+}
+@media (max-width: 1289px) {
+    .header__nav {
+        max-width: 920px;
+        width: 90%;
+    }
+}

@@ -1,0 +1,49 @@
+.main {
+  box-sizing: border-box;
+  
+  &__container {
+    max-width: 1290px;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    min-height: 6rem;
+    margin: 0 0 1rem 0;
+  }
+  &__link {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: black;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__btn {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.625rem;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+
+      &:hover {
+        opacity: 0.6;
+    }
+  }
+}
+
+@media (max-width: 1289px) {
+  .main__container {
+      max-width: 920px;
+      width: 90%;
+  }
+}

@@ -1,39 +1,35 @@
 import React from 'react';
+import './Favorites.scss';
 import { Link } from 'react-router-dom';
 
 export default class Favorites extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    };
-  }
-  
-  
-
   
   render() {
-    const { favorites, onClick, onRemove } = this.props;
+    const { favorites, onSort, onRemove } = this.props;
     return (
-      <div>
-        <button onClick={onClick}>Sort</button>
-        <ul>
+      <section className='main__container favorites'>
+        <button
+          className='favorites__btn main__btn' 
+          onClick={onSort}>
+          Sort
+        </button>
+        <ul className='favorites__list main__list'>
           {favorites.map(hero => {
             return (
               <li key={hero.name}>
-                <div className="userInfo">
-                  <p>
+                <div className="favorites__list-info">
+                  <h2>
                     {hero.name}
-                  </p>
-                  <button onClick={()=>onRemove(hero)}>Remove</button>
-                  <Link to={`/${hero.name}`}>Show more info</Link>
+                  </h2>
+                  <Link className='favorites__list-link main__link' to={`/${hero.name}`}>Show more info</Link>
+                  <button className='favorites__list-btn main__btn' onClick={()=>onRemove(hero)}>Remove</button>
                 </div>
               </li>
             );
           })}
         </ul>
-        <button onClick={onClick}><Link to="/">back to Gallery</Link></button>
-      </div>
+        <Link className='favorites__link main__link' to="/">back to Gallery</Link>
+      </section>
     );
   }
 }
